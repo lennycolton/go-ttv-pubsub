@@ -8,7 +8,7 @@ const (
 	TypeBits                  = Type("channel-bits-events-v2")
 	TypeBitsBadgeNotification = Type("channel-bits-badge-unlocks")
 	TypeSubscriptions         = Type("channel-subscribe-events-v1")
-	TypeCommerce              = Type("channel-commerce-events-v1")
+	TypeChannelPoints         = Type("channel-points-channel-v1")
 	TypeWhispers              = Type("whispers")
 	TypeModerationAction      = Type("chat_moderator_actions")
 	TypeInvalid               = Type("invalid")
@@ -30,8 +30,8 @@ func GetType(topic string) Type {
 		return TypeBitsBadgeNotification
 	case TypeSubscriptions:
 		return TypeSubscriptions
-	case TypeCommerce:
-		return TypeCommerce
+	case TypeChannelPoints:
+		return TypeChannelPoints
 	case TypeWhispers:
 		return TypeWhispers
 	case TypeModerationAction:

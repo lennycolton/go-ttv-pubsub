@@ -1,8 +1,9 @@
 package TTVClient
 
 import (
-	"github.com/theorx/go-ttv-pubsub/pkg/Topic"
 	"time"
+
+	"github.com/theorx/go-ttv-pubsub/pkg/Topic"
 )
 
 type IncomingMessage struct {
@@ -63,24 +64,48 @@ type WhisperMsg struct {
 	} `json:"data_object"`
 }
 
-type CommerceMsg struct {
-	UserName        string `json:"user_name"`
-	DisplayName     string `json:"display_name"`
-	ChannelName     string `json:"channel_name"`
-	UserID          string `json:"user_id"`
-	ChannelID       string `json:"channel_id"`
-	Time            string `json:"time"`
-	ItemImageURL    string `json:"item_image_url"`
-	ItemDescription string `json:"item_description"`
-	SupportsChannel bool   `json:"supports_channel"`
-	PurchaseMessage struct {
-		Message string `json:"message"`
-		Emotes  []struct {
-			Start int `json:"start"`
-			End   int `json:"end"`
-			ID    int `json:"id"`
-		} `json:"emotes"`
-	} `json:"purchase_message"`
+type ChannelPointsMsg struct {
+	Timestamp  string `json:"timestamp"`
+	Redemption []struct {
+		ID   string `json:"id"`
+		User struct {
+			UserID      string `json:"user_id"`
+			UserName    string `json:"user_name"`
+			DisplayName string `json:"display_name"`
+		} `json:"user"`
+		ChannelID  string `json:"channel_id"`
+		RedeemedAt string `json:"time"`
+		Reward     struct {
+			ID            string `json:"id"`
+			ChannelID     string `json:"channel_id"`
+			Title         string `json:"title"`
+			Prompt        string `json:"prompt"`
+			Cost          int    `json:"cost"`
+			InputRequired bool   `json:"is_user_input_required"`
+			SubOnly       bool   `json:"is_sub_only"`
+			Image         struct {
+				URL1x string `json:"url_1x"`
+				URL2x string `json:"url_2x"`
+				URL4x string `json:"url_4x"`
+			} `json:"image"`
+			DefaultImage struct {
+				URL1x string `json:"url_1x"`
+				URL2x string `json:"url_2x"`
+				URL4x string `json:"url_4x"`
+			} `json:"default_image"`
+			BackgroundColor string `json:"background_color"`
+			Enabled         bool   `json:"is_enabled"`
+			Paused          bool   `json:"is_paused"`
+			InStock         bool   `json:"is_in_stock"`
+			MaxPerStream    struct {
+				Enabled      bool `json:"is_enabled"`
+				MaxPerStream int  `json:"max_per_stream"`
+			} `json:"max_per_stream"`
+			SkipQueue bool `json:"should_redemptions_skip_request_queue"`
+		} `json:"reward"`
+		UserInput string `json:"user_input"`
+		Status    string `json:"status"`
+	} `json:"redemption"`
 }
 
 type SubscriptionMsg struct {

@@ -3,8 +3,9 @@ package TTVClient
 import (
 	"encoding/json"
 	"errors"
-	"github.com/theorx/go-ttv-pubsub/pkg/Topic"
 	"time"
+
+	"github.com/theorx/go-ttv-pubsub/pkg/Topic"
 )
 
 func (c *Client) readLoop() {
@@ -95,16 +96,16 @@ func (c *Client) handleTopics(msg IncomingMessage) bool {
 			c.subscriptionsHandler(*m)
 		}
 		return true
-	case Topic.TypeCommerce:
-		m := &CommerceMsg{}
+	case Topic.TypeChannelPoints:
+		m := &ChannelPointsMsg{}
 
 		err := json.Unmarshal([]byte(msg.Data.Message), &m)
 		if err != nil {
 			return false
 		}
 
-		if c.commerceHandler != nil {
-			c.commerceHandler(*m)
+		if c.channelPointsHandler != nil {
+			c.channelPointsHandler(*m)
 		}
 		return true
 	case Topic.TypeWhispers:

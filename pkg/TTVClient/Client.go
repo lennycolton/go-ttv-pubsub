@@ -1,12 +1,13 @@
 package TTVClient
 
 import (
-	"github.com/google/uuid"
-	"github.com/gorilla/websocket"
-	"github.com/theorx/go-ttv-pubsub/pkg/Topic"
 	"sync"
 	"sync/atomic"
 	"time"
+
+	"github.com/google/uuid"
+	"github.com/gorilla/websocket"
+	"github.com/theorx/go-ttv-pubsub/pkg/Topic"
 )
 
 const TwitchPubSubHost = "wss://pubsub-edge.twitch.tv/"
@@ -37,7 +38,7 @@ type Client struct {
 	bitsHandler          BitsHandlerFunction
 	bitsBadgeHandler     BitsBadgeHandlerFunction
 	subscriptionsHandler SubscriptionsHandlerFunction
-	commerceHandler      CommerceHandlerFunction
+	channelPointsHandler ChannelPointsHandlerFunction
 	whispersHandler      WhispersHandlerFunction
 	moderationHandler    ModerationActionHandlerFunction
 	/* catch all handler will always be triggered no matter the message type */
