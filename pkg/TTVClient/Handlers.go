@@ -22,7 +22,7 @@ func (c *Client) SetSubscriptionsHandler(h SubscriptionsHandlerFunction) {
 	c.subscriptionsHandler = h
 }
 
-func (c *Client) SetCommerceHandler(h ChannelPointsHandlerFunction) {
+func (c *Client) SetChannelPointsHandler(h ChannelPointsHandlerFunction) {
 	c.channelPointsHandler = h
 }
 
