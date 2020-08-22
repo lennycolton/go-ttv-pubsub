@@ -3,7 +3,7 @@ package Topic_test
 import (
 	"testing"
 
-	"github.com/theorx/go-ttv-pubsub/pkg/Topic"
+	"github.com/lennycolton/go-ttv-pubsub/pkg/Topic"
 )
 
 func TestGetType(t *testing.T) {

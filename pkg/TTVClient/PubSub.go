@@ -2,7 +2,7 @@ package TTVClient
 
 import (
 	"errors"
-	"github.com/theorx/go-ttv-pubsub/pkg/Topic"
+	"github.com/lennycolton/go-ttv-pubsub/pkg/Topic"
 	"sync/atomic"
 )
 
