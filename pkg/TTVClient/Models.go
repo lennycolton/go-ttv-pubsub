@@ -65,47 +65,32 @@ type WhisperMsg struct {
 }
 
 type ChannelPointsMsg struct {
-	Timestamp  string `json:"timestamp"`
-	Redemption []struct {
-		ID   string `json:"id"`
-		User struct {
-			UserID      string `json:"user_id"`
-			UserName    string `json:"user_name"`
-			DisplayName string `json:"display_name"`
-		} `json:"user"`
-		ChannelID  string `json:"channel_id"`
-		RedeemedAt string `json:"time"`
-		Reward     struct {
-			ID            string `json:"id"`
-			ChannelID     string `json:"channel_id"`
-			Title         string `json:"title"`
-			Prompt        string `json:"prompt"`
-			Cost          int    `json:"cost"`
-			InputRequired bool   `json:"is_user_input_required"`
-			SubOnly       bool   `json:"is_sub_only"`
-			Image         struct {
-				URL1x string `json:"url_1x"`
-				URL2x string `json:"url_2x"`
-				URL4x string `json:"url_4x"`
-			} `json:"image"`
-			DefaultImage struct {
-				URL1x string `json:"url_1x"`
-				URL2x string `json:"url_2x"`
-				URL4x string `json:"url_4x"`
-			} `json:"default_image"`
-			BackgroundColor string `json:"background_color"`
-			Enabled         bool   `json:"is_enabled"`
-			Paused          bool   `json:"is_paused"`
-			InStock         bool   `json:"is_in_stock"`
-			MaxPerStream    struct {
-				Enabled      bool `json:"is_enabled"`
-				MaxPerStream int  `json:"max_per_stream"`
-			} `json:"max_per_stream"`
-			SkipQueue bool `json:"should_redemptions_skip_request_queue"`
-		} `json:"reward"`
-		UserInput string `json:"user_input"`
-		Status    string `json:"status"`
-	} `json:"redemption"`
+	Type string `json:"type"`
+	Data struct {
+		Timestamp  string `json:"timestamp"`
+		Redemption []struct {
+			ID   string `json:"id"`
+			User struct {
+				UserID      string `json:"id"`
+				UserName    string `json:"login"`
+				DisplayName string `json:"display_name"`
+			} `json:"user"`
+			ChannelID  string `json:"channel_id"`
+			RedeemedAt string `json:"redeemed_at"`
+			Reward     struct {
+				ID            string `json:"id"`
+				ChannelID     string `json:"channel_id"`
+				Title         string `json:"title"`
+				Prompt        string `json:"prompt"`
+				Cost          int    `json:"cost"`
+				InputRequired bool   `json:"is_user_input_required"`
+				Enabled       bool   `json:"is_enabled"`
+				SkipQueue     bool   `json:"should_redemptions_skip_request_queue"`
+			} `json:"reward"`
+			UserInput string `json:"user_input"`
+			Status    string `json:"status"`
+		} `json:"redemption"`
+	} `json:"data"`
 }
 
 type SubscriptionMsg struct {
