@@ -7,7 +7,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/gorilla/websocket"
-	"github.com/theorx/go-ttv-pubsub/pkg/Topic"
+	"github.com/lennycolton/go-ttv-pubsub/pkg/Topic"
 )
 
 const TwitchPubSubHost = "wss://pubsub-edge.twitch.tv/"

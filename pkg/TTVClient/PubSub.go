@@ -2,8 +2,9 @@ package TTVClient
 
 import (
 	"errors"
-	"github.com/theorx/go-ttv-pubsub/pkg/Topic"
 	"sync/atomic"
+
+	"github.com/lennycolton/go-ttv-pubsub/pkg/Topic"
 )
 
 var ErrorOperationFailed = errors.New("sub/unsub operation failed")
