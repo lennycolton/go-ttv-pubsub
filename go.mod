@@ -1,4 +1,4 @@
-module github.com/theorx/go-ttv-pubsub
+module github.com/lennycolton/go-ttv-pubsub
 
 go 1.13
 
