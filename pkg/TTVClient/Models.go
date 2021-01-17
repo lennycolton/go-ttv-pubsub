@@ -68,7 +68,7 @@ type ChannelPointsMsg struct {
 	Type string `json:"type"`
 	Data struct {
 		Timestamp  string `json:"timestamp"`
-		Redemption []struct {
+		Redemption struct {
 			ID   string `json:"id"`
 			User struct {
 				UserID      string `json:"id"`
